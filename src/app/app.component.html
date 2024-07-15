@@ -1,0 +1,29 @@
+<h1 class="title">Tres en raya con Angular</h1>
+
+  <div class="tablero">
+    <div class="cuadro" (click)="pressed(0, 0)">{{positions[0][0]}}</div>
+    <div class="cuadro" (click)="pressed(0, 1)">{{positions[0][1]}}</div>
+    <div class="cuadro" (click)="pressed(0, 2)">{{positions[0][2]}}</div>
+
+    <div class="cuadro" (click)="pressed(1, 0)">{{positions[1][0]}}</div>
+    <div class="cuadro" (click)="pressed(1, 1)">{{positions[1][1]}}</div>
+    <div class="cuadro" (click)="pressed(1, 2)">{{positions[1][2]}}</div>
+
+    <div class="cuadro" (click)="pressed(2, 0)">{{positions[2][0]}}</div>
+    <div class="cuadro" (click)="pressed(2, 1)">{{positions[2][1]}}</div>
+    <div class="cuadro" (click)="pressed(2, 2)">{{positions[2][2]}}</div>
+  </div>
+
+  <div class="players">
+  <span class="player" [class.currentPlayer]="currentPlayer === playerX">{{playerX}}</span>
+  <span class="player" [class.currentPlayer]="currentPlayer === playerO">{{playerO}}</span>
+</div>
+
+  <button class="reset" (click)="reset()">Reset</button>
+
+@if (isWinner) {
+  <div class="winner">
+    <p>Ha ganado <span >{{playerX}}</span></p> 
+    <button class="reset" (click)="reset()">Volver a jugar</button>
+  </div>
+}

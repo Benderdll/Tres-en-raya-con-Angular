@@ -17,14 +17,19 @@ export class AppComponent {
     ["", "", ""]
   ]
   playerX = "✖️"
+  playerXpoints = 0
   playerO = "⭕"
+  playerOpoints = 0
   winner = ""
   isWinner = false
+  isDraw = false
 
   currentPlayer = this.playerX
 
   pressed(row: number, col: number) {
-    if (this.freeBox(row, col)) {
+    if (this.isWinner) {
+      return
+    } else if (this.freeBox(row, col)) {
       this.positions[row][col] = this.currentPlayer
       this.checkWinner(this.playerX)
       this.checkWinner(this.playerO)
@@ -40,8 +45,9 @@ export class AppComponent {
         }
       }
     }
-    alert("It's a draw")
-    this.reset()
+    // alert("It's a draw")
+    this.isDraw = true
+    // this.reset()
   }
   changePlayer() {
     if (this.currentPlayer === this.playerX) {
@@ -58,6 +64,11 @@ export class AppComponent {
   checkWinner(player: string) {
     if (this.checkRows(player) || this.checkCols(player) || this.checkDiagonals(player)) {
       this.winner = player
+      if (player === this.playerX) {
+        this.playerXpoints++
+      } else {
+        this.playerOpoints++
+      }
       this.isWinner = true
       // // alert("Ha ganado el jugador " + player)
       // this.reset()
@@ -72,6 +83,7 @@ export class AppComponent {
     this.currentPlayer = this.playerX
     this.winner = ""
     this.isWinner = false
+    this.isDraw = false
 
   }
   checkDiagonals(player: string): boolean {

@@ -11,6 +11,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     margin: 2rem;
+    border-radius: 10px;
     
 }
 
@@ -23,6 +24,8 @@
     align-items: center;
     justify-content: center;
     font-size: 2em;
+    background-color: #7552ac36;
+
 }
 .cuadro:hover {
     cursor: pointer;
@@ -42,20 +45,42 @@ div.players {
     border-radius: 30px;
 }
 
-.currentPlayer{
-    background-color: #4d3672;
+.playerO{
+    background-color: rgba(248, 125, 125, 0.623);
+    box-shadow: 0px 0px 20px rgba(248, 125, 125, 0.623);
     
+}
+.playerX{
+    background-color: #4d3672;
+    box-shadow: 0px 0px 20px #804fcf;
+}
+
+.winnerPlayerO{
+    background-color: rgba(248, 125, 125, 0.377);
+    padding: 0.5rem;
+    box-shadow: 0px 0px 20px rgba(248, 125, 125, 0.623);
+    border-radius: 30px;
+
+}
+
+.winnerPlayerX{
+    background-color: #4d3672;
+    box-shadow: 0px 0px 20px #804fcf6c;
+    padding: 0.5rem;
+    border-radius: 30px;
+
 }
 
 .reset {
-    margin: 1rem;
+    margin: 2rem;
     padding: 0.5rem 1rem; 
     background-color: #7845cc;
     color: white; 
-    border: none; 
+    border: 1px solid #7845cc;
     border-radius: 5px; 
     cursor: pointer;
     transition: background-color 0.3s ease; 
+    box-shadow: 0px 0px 20px #7845cc;
 }
 
 .reset:hover {
@@ -63,16 +88,93 @@ div.players {
     border: 1px solid #7845cc;
 }
 
-.winner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.winner-draw {
+    /* Elimina la posición absoluta y transforma */
     background-color: #333;
     color: white;
-    padding: 100px;
-    border: 1px solid #ddd;
+    padding: 70px;
+    border: 2px solid #ddd;
     border-radius: 10px;
     text-align: center;
+    width: 100%; /* Ajusta esto según tus necesidades */
+    margin-top: 2rem;
+    margin-left: 0.5rem;
+  }
+
+/* .winner span{
+    background-color: #7945cc2a;
+    padding: 0.5rem;
+    border-radius: 50px;
+    box-shadow: inset 0px 0px 5px #7845cc;
+} */
+  
+  .puntuacion {
+    /* Elimina la posición absoluta y transforma */
+    background-color: #333;
+    color: white;
+    padding: 90px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%; /* Ajusta esto según tus necesidades */
+    margin-top: 2rem;
+    margin-left: 0.5rem;
+  }
+  
+  .game-container {
+    display: flex;
+  justify-content: space-around;
+  align-items: flex-start; /* Alinea los elementos al principio del contenedor */
+  }
+
+  .game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 600px) {
+    .game-container {
+      flex-direction: column;
+    }
+    .cuadro {
+      height: 60px;
+      width: 60px;
+    }
+    .winner, .puntuacion {
+      padding: 20px; /* Reduce el padding para pantallas pequeñas */
+      width: 80%; /* Ajusta esto según tus necesidades */
+    }
+  }
+  
+  /* Estilos para pantallas medianas */
+  @media (min-width: 601px) and (max-width: 900px) {
+    .game-container {
+      flex-direction: column;
+    }
+    .cuadro {
+      height: 80px;
+      width: 80px;
+    }
+    .winner, .puntuacion {
+      /* padding: px; Ajusta el padding para pantallas medianas */
+      width: 90%; /* Ajusta esto según tus necesidades */
+    }
+  }
+  
+  /* Estilos para pantallas grandes */
+  @media (min-width: 901px) {
+    .game-container {
+      flex-direction: row;
+    }
+    .cuadro {
+      height: 100px;
+      width: 100px;
+    }
+    .winner, .puntuacion {
+      /* padding: 100px; Ajusta el padding para pantallas grandes */
+      width: 100%; /* Ajusta esto según tus necesidades */
+    }
   }
   

@@ -1,3 +1,3 @@
 @startuml
-Alice -> Bob: TestPrueba2
+Alice -> Bob: TestPruebaAngelito
 @enduml
